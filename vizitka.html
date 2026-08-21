@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Персональная визитка Юрия Королёва, исполнительного директора.">
+  <title>Юрий Королёв | Исполнительный директор</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: #111214;
+      --line: #292b30;
+      --text: #f5f5f2;
+      --muted: #989ba3;
+      --lime: #d8ff58;
+      --cyan: #5fe5d1;
+      --orange: #ff9b54;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: '';
+      opacity: .45;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--line); font: 600 12px/1.2 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    .mark { display: inline-flex; align-items: center; gap: 10px; color: var(--text); }
+    .mark::before { width: 10px; height: 10px; content: ''; background: var(--lime); box-shadow: 0 0 18px var(--lime); }
+    .availability { color: var(--muted); }
+    .availability span { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+
+    main { padding: clamp(76px, 13vw, 160px) 0 100px; }
+    .hero { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: end; }
+    .eyebrow { margin: 0 0 25px; color: var(--orange); font: 700 12px/1.2 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 750px; margin: 0; font-size: clamp(60px, 11vw, 144px); line-height: .84; letter-spacing: -.055em; font-weight: 700; }
+    .glow { color: var(--lime); text-shadow: 0 0 16px rgba(216,255,88,.35), 0 0 54px rgba(216,255,88,.13); }
+    .intro { max-width: 360px; padding-bottom: 8px; color: var(--muted); font-size: 19px; line-height: 1.45; }
+    .intro strong { display: block; margin-bottom: 16px; color: var(--text); font: 700 14px/1.3 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    .rule { height: 1px; margin: 74px 0 28px; background: var(--line); }
+    .details { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .label { margin: 0 0 14px; color: var(--muted); font: 700 11px/1.2 Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+    .statement { max-width: 600px; margin: 0; font-size: clamp(24px, 3vw, 38px); line-height: 1.08; }
+    .actions { display: flex; flex-direction: column; align-items: flex-start; gap: 26px; }
+    .write { position: relative; display: inline-flex; align-items: center; gap: 20px; padding: 17px 20px 17px 23px; overflow: hidden; color: var(--bg); background: var(--lime); font: 700 13px/1 Arial, sans-serif; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; transition: transform .25s ease, box-shadow .25s ease; }
+    .write::after { position: absolute; top: 0; left: -100%; width: 70%; height: 100%; content: ''; background: rgba(255,255,255,.5); transform: skewX(-22deg); transition: left .5s ease; }
+    .write:hover { box-shadow: 0 0 28px rgba(216,255,88,.35); transform: translateY(-4px); }
+    .write:hover::after { left: 130%; }
+    .arrow { position: relative; z-index: 1; font-size: 20px; line-height: 0; }
+    .socials { display: flex; gap: 10px; }
+    .social { display: grid; width: 44px; height: 44px; place-items: center; color: var(--muted); border: 1px solid var(--line); transition: color .25s ease, border-color .25s ease, transform .25s ease, background .25s ease; }
+    .social:hover { color: var(--lime); border-color: var(--lime); background: rgba(216,255,88,.07); transform: translateY(-4px); }
+    .social svg { width: 19px; height: 19px; fill: currentColor; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0 30px; color: #595b61; border-top: 1px solid var(--line); font: 11px/1.4 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .topbar, .hero, .rule, .details, footer { animation: rise .7s both; }
+    .hero { animation-delay: .08s; }
+    .rule { animation-delay: .18s; }
+    .details { animation-delay: .26s; }
+    footer { animation-delay: .34s; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, 520px); }
+      .topbar { padding: 22px 0; }
+      .availability { font-size: 0; }
+      .availability span { margin-right: 0; }
+      main { padding: 82px 0 70px; }
+      .hero, .details { grid-template-columns: 1fr; gap: 40px; }
+      h1 { font-size: clamp(60px, 19vw, 105px); }
+      .intro { font-size: 18px; }
+      .rule { margin: 60px 0 27px; }
+      footer { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="mark">Визитка</div>
+      <div class="availability"><span></span> открыт к диалогу</div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="name">
+        <div>
+          <p class="eyebrow">Стратегия · Команды · Результат</p>
+          <h1 id="name">Юрий<br><span class="glow">Королёв</span></h1>
+        </div>
+        <div class="intro">
+          <strong>Исполнительный директор</strong>
+          Помогаю превращать амбициозные идеи в устойчивые проекты, а сильные команды — в заметные результаты.
+        </div>
+      </section>
+
+      <div class="rule"></div>
+
+      <section class="details" aria-label="Контакты и информация">
+        <div>
+          <p class="label">Подход</p>
+          <p class="statement">Думаю системно. Действую точно. Создаю движение.</p>
+        </div>
+        <div class="actions">
+          <p class="label">Связаться</p>
+          <a class="write" href="mailto:hello@example.com?subject=Предложение%20для%20Юрия%20Королёва&amp;body=Здравствуйте%2C%20Юрий%21"><span>Написать мне</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <nav class="socials" aria-label="Социальные сети">
+            <a class="social" href="https://t.me/" target="_blank" rel="noreferrer" aria-label="Telegram" title="Telegram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.4 3.7 18.2 20c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.6 13.7.7 12.2c-1.1-.3-1.1-1 .2-1.5L20 3.2c.9-.3 1.7.2 1.4.5Z"/></svg>
+            </a>
+            <a class="social" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 0 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .8.1-.7.4-1.1.7-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.7 9.7 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.7.7 1 1.6 1 2.7 0 3.8-2.4 4.6-4.6 4.9.4.3.7 1 .7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>
+            </a>
+            <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.3A2.2 2.2 0 1 1 5.2 7.7a2.2 2.2 0 0 1 0-4.4ZM3.4 9h3.6v11.6H3.4V9Zm5.8 0h3.4v1.6h.1c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.3 2.4 4.3 5.5v6.4h-3.6v-5.7c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v5.8H9.2V9Z"/></svg>
+            </a>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>Юрий Королёв</span><span>Москва · Россия</span><span>© 2026</span></footer>
+  </div>
+</body>
+</html>
