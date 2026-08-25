@@ -7,16 +7,16 @@
   <title>Аренда нежилых помещений | Свободное назначение</title>
   <style>
     :root {
-      --bg: #080b12;
-      --panel: rgba(19, 25, 39, .78);
-      --panel-strong: #151c2d;
-      --line: rgba(180, 199, 232, .16);
-      --text: #f4f7ff;
-      --muted: #a5afc4;
-      --cyan: #63e6e0;
-      --blue: #6c8cff;
-      --pink: #ff74b8;
-      --shadow: 0 24px 80px rgba(0, 0, 0, .32);
+      --bg: #f4f1ea;
+      --panel: rgba(255, 255, 255, .78);
+      --panel-strong: #fffdf8;
+      --line: rgba(24, 33, 43, .16);
+      --text: #18212b;
+      --muted: #5c6673;
+      --cyan: #087f7a;
+      --blue: #5274d8;
+      --pink: #d86493;
+      --shadow: 0 24px 80px rgba(54, 45, 31, .12);
     }
 
     * { box-sizing: border-box; }
@@ -36,7 +36,7 @@
       border-radius: 50%;
       content: '';
       filter: blur(70px);
-      opacity: .22;
+      opacity: .12;
       pointer-events: none;
     }
     body::before { top: -18vw; right: -10vw; background: var(--blue); }
@@ -63,7 +63,7 @@
     .section-heading h2 { margin: 0; font-size: clamp(29px, 4vw, 46px); line-height: 1; letter-spacing: -.03em; }
     .section-heading p { max-width: 330px; margin: 0; color: var(--muted); font: 13px/1.5 Arial, sans-serif; }
     .benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .benefit { min-height: 260px; padding: 27px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(26, 35, 56, .82), rgba(12, 16, 27, .62)); box-shadow: var(--shadow); transition: transform .3s ease, border-color .3s ease; }
+    .benefit { min-height: 260px; padding: 27px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(255, 255, 255, .92), rgba(235, 239, 235, .72)); box-shadow: var(--shadow); transition: transform .3s ease, border-color .3s ease; }
     .benefit:hover { border-color: rgba(99, 230, 224, .6); transform: translateY(-8px); }
     .icon { display: grid; width: 48px; height: 48px; margin-bottom: 52px; place-items: center; color: var(--cyan); border: 1px solid rgba(99, 230, 224, .35); background: rgba(99, 230, 224, .08); }
     .icon svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
@@ -78,7 +78,7 @@
     .contact p { margin: 0; color: var(--muted); font: 14px/1.5 Arial, sans-serif; }
     form { display: grid; gap: 13px; }
     label { color: var(--muted); font: 11px/1.2 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
-    input, textarea { width: 100%; margin-top: 7px; padding: 13px 14px; color: var(--text); border: 1px solid var(--line); outline: 0; background: rgba(5, 8, 14, .6); font: 15px/1.3 Georgia, serif; }
+    input, textarea { width: 100%; margin-top: 7px; padding: 13px 14px; color: var(--text); border: 1px solid var(--line); outline: 0; background: rgba(255, 255, 255, .72); font: 15px/1.3 Georgia, serif; }
     input:focus, textarea:focus { border-color: var(--cyan); }
     textarea { min-height: 82px; resize: vertical; }
     button { width: fit-content; padding: 14px 20px; cursor: pointer; color: #071016; border: 0; background: var(--cyan); font: 800 12px/1 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
@@ -167,7 +167,7 @@
         </div>
         <form id="request-form">
           <label>Ваше имя<input name="name" required placeholder="Имя"></label>
-          <label>Телефон или email<input name="contact" required placeholder="Как с вами связаться"></label>
+          <label>Телефон или электронная почта<input name="contact" required placeholder="Как с вами связаться"></label>
           <label>Комментарий<textarea name="message" placeholder="Площадь, район, назначение"></textarea></label>
           <button type="submit">Отправить заявку</button>
           <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
