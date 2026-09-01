@@ -1,10 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "Bash(*)",
-      "Read(//**)",
-      "Write(//**)",
-      "Edit(//**)",
       "WebFetch",
       "WebSearch"
     ],
@@ -46,14 +42,14 @@
       "Bash(cat /**/.env)",
       "Bash(cat /**/.env.*)"
     ],
-    "defaultMode": "bypassPermissions",
+    "defaultMode": "default",
     "additionalDirectories": [
       "/tmp",
       "/home/agent/projects"
     ]
   },
   "effortLevel": "xhigh",
-  "skipDangerousModePermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": false,
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true
   }

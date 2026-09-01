@@ -22,3 +22,6 @@ Thumbs.db
 
 bot/node_modules/
 .media/
+.venv-audio/
+__pycache__/
+*.pyc
