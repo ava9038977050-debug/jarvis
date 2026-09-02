@@ -1,0 +1,19 @@
+{
+    "description":  "Fail-closed validation of epistemic contracts from Jarvis custom agents",
+    "hooks":  {
+                  "SubagentStop":  [
+                                       {
+                                           "matcher":  "^(authors_(arranger_producer|composer|lyricist|lyrics_reviewer|music_reviewer|production_reviewer)|executive_(finance_tax|hrbp|lawyer|management_controller|property_operations))$",
+                                           "hooks":  [
+                                                         {
+                                                             "type":  "command",
+                                                             "command":  "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/validate_epistemic_contract.py\"",
+                                                             "commandWindows":  "powershell.exe -NoProfile -Command \"$jarvisRoot = git rev-parse --show-toplevel; python (Join-Path $jarvisRoot \u0027.codex/hooks/validate_epistemic_contract.py\u0027)\"",
+                                                             "timeout":  10,
+                                                             "statusMessage":  "Проверка контракта достоверности"
+                                                         }
+                                                     ]
+                                       }
+                                   ]
+              }
+}
